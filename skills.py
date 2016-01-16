@@ -48,8 +48,12 @@ def find_unique_common_items(list1, list2):
 
     common_list = []
     temp_set = set()
-    set_list1 = set(list1)
-    set_list2 = set(list2)
+    if len(list1) <= len(list2):
+        set_list1 = set(list1)
+        set_list2 = set(list2)
+    else:
+        set_list1 = set(list2)
+        set_list2 = set(list1)
 
     for item_l1 in set_list1:
         for item_l2 in set_list2:
@@ -193,7 +197,7 @@ def sort_by_word_length(words):
         else:
             dict_words[len_word] = [word]
     for each_element in dict_words.items():
-        list_tuples.append((each_element[0], each_element[1])) 
+        list_tuples.append((each_element[0], each_element[1]))
 
     return list_tuples
 
